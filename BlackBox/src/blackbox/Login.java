@@ -147,7 +147,12 @@ public class Login extends javax.swing.JFrame {
         String username = UsernameBox.getText();
         String password = new String(PasswordBox.getPassword());  // Convert password to string
 
-        this.client = new Client("localhost", 9001); // Example: You may want to pass server/port dynamically
+        // for localhost use:
+        // this.client = new Client("localhost", 9001);
+
+
+        // for router use
+        this.client = new Client("192.168.0.100", 9001); // The static IP for the my computer running the server, registered on the Archer A54 router used for testing
 
         if (client.login(username, password)) {
             SwingUtilities.invokeLater(()-> {
